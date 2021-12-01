@@ -22,10 +22,20 @@ class CoinItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(
-            coin.image,
-            width: 70.w,
-          ),
+          Image.network(coin.image, width: 70.w,
+              loadingBuilder: (context, child, loading) {
+            if (loading == null) {
+              return child;
+            }
+            return Container(
+              height: 70.w,
+              width: 70.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).backgroundColor,
+              ),
+            );
+          }),
           const SizedBox(width: 10),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,

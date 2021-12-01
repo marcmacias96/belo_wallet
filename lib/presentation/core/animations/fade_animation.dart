@@ -32,10 +32,10 @@ enum AniProps { opacity, tralateY }
 TimelineTween<AniProps> createTween(double delay) => TimelineTween<AniProps>()
   ..addScene(
           begin: Duration.zero,
-          end: Duration(milliseconds: (900 * delay).round()))
-      .animate(AniProps.tralateY, tween: Tween<double>(begin: 50.0, end: 0.0))
+          end: Duration(milliseconds: (1000 * delay).round()))
       .animate(
         AniProps.opacity,
         tween: Tween<double>(begin: 0.0, end: 1.0),
         curve: Curves.easeOut,
-      );
+      )
+      .animate(AniProps.tralateY, tween: Tween<double>(begin: 50.0, end: 0.0));
