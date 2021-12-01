@@ -38,4 +38,4 @@ TimelineTween<AniProps> createTween(double delay) => TimelineTween<AniProps>()
         tween: Tween<double>(begin: 0.0, end: 1.0),
         curve: Curves.easeOut,
       )
-      .animate(AniProps.tralateY, tween: Tween<double>(begin: 50.0, end: 0.0));
+      .animate(AniProps.tralateY, tween: Tween<double>(begin: 25.0, end: 0.0));
