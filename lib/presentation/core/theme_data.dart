@@ -54,11 +54,17 @@ class AppTheme {
   static final TextStyle _headLine6Light = TextStyle(
       color: Colors.black, fontSize: 36.sp, fontWeight: FontWeight.w700);
 
-  static final TextStyle _headLine5Light =
-      _headLine6Light.copyWith(fontSize: 56.sp, fontWeight: FontWeight.bold);
+  static final TextStyle _headLine5Light = _headLine6Light.copyWith(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 
   static final TextStyle _headLine4Dark = _headLine5Light.copyWith(
-      letterSpacing: 1, fontSize: 56.sp, color: Colors.white);
+    letterSpacing: 1,
+    fontSize: 30.sp,
+    color: Colors.black,
+  );
 
   static final TextStyle _bodyText1Light = TextStyle(
       color: AppTheme.greyAccent,
@@ -66,7 +72,11 @@ class AppTheme {
       fontWeight: FontWeight.w400,
       height: 1.5);
 
-  static final _bodyText2Light = _bodyText1Light.copyWith(fontSize: 26.sp);
+  static final _bodyText2Light = _bodyText1Light.copyWith(
+    fontSize: 40.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 
   static final TextStyle _buttonDark = _headLine6Light.copyWith(
       fontWeight: FontWeight.w400, color: Colors.white, fontSize: 36.sp);

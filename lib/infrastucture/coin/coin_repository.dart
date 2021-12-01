@@ -30,12 +30,11 @@ class CoinRepository extends ICoinRepository {
         "/api/v3/coins/markets",
         queryParameters: {'vs_currency': 'usd', 'ids': listOfCoins},
       );
-      List listMaps = jsonDecode(response.data).cast<Map<String, dynamic>>();
-      return right(
-        listMaps
-            .map((jsonCoin) => CoinDto.fromJson(jsonCoin).toDomain())
-            .toList(),
-      );
+      List<dynamic> listMaps = response.data;
+      var list = listMaps
+          .map((jsonCoin) => CoinDto.fromJson(jsonCoin).toDomain())
+          .toList();
+      return right(list);
     } on DioError catch (e) {
       _logger.e(
         "Could not get the list of coins $listOfCoins due to this error",
