@@ -4,11 +4,7 @@ part of 'layout_notifier.dart';
 class LayoutState with _$LayoutState {
   const factory LayoutState({
     required int index,
-    required PageController controller,
   }) = _LayoutState;
 
-  factory LayoutState.initial() => LayoutState(
-        index: 0,
-        controller: PageController(),
-      );
+  factory LayoutState.initial() => const LayoutState(index: 0);
 }

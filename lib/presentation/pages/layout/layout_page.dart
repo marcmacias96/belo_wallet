@@ -8,15 +8,17 @@ import 'widgets/button_navigation_bar.dart';
 
 class LayoutPage extends ConsumerWidget {
   const LayoutPage({Key? key}) : super(key: key);
-  static const List<StatelessWidget> pages = [
+  static const List<Widget> pages = [
     CryptoCurrencyPage(),
     WalletPage(),
   ];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(layoutNotifierProvider);
     return Scaffold(
-      body: PageView(
+      body: IndexedStack(
+        index: state.index,
         children: pages,
       ),
       bottomNavigationBar: BottonNavigationBar(

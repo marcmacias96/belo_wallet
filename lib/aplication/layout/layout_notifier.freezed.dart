@@ -17,10 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LayoutStateTearOff {
   const _$LayoutStateTearOff();
 
-  _LayoutState call({required int index, required PageController controller}) {
+  _LayoutState call({required int index}) {
     return _LayoutState(
       index: index,
-      controller: controller,
     );
   }
 }
@@ -31,7 +30,6 @@ const $LayoutState = _$LayoutStateTearOff();
 /// @nodoc
 mixin _$LayoutState {
   int get index => throw _privateConstructorUsedError;
-  PageController get controller => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LayoutStateCopyWith<LayoutState> get copyWith =>
@@ -43,7 +41,7 @@ abstract class $LayoutStateCopyWith<$Res> {
   factory $LayoutStateCopyWith(
           LayoutState value, $Res Function(LayoutState) then) =
       _$LayoutStateCopyWithImpl<$Res>;
-  $Res call({int index, PageController controller});
+  $Res call({int index});
 }
 
 /// @nodoc
@@ -57,17 +55,12 @@ class _$LayoutStateCopyWithImpl<$Res> implements $LayoutStateCopyWith<$Res> {
   @override
   $Res call({
     Object? index = freezed,
-    Object? controller = freezed,
   }) {
     return _then(_value.copyWith(
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      controller: controller == freezed
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as PageController,
     ));
   }
 }
@@ -79,7 +72,7 @@ abstract class _$LayoutStateCopyWith<$Res>
           _LayoutState value, $Res Function(_LayoutState) then) =
       __$LayoutStateCopyWithImpl<$Res>;
   @override
-  $Res call({int index, PageController controller});
+  $Res call({int index});
 }
 
 /// @nodoc
@@ -95,17 +88,12 @@ class __$LayoutStateCopyWithImpl<$Res> extends _$LayoutStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = freezed,
-    Object? controller = freezed,
   }) {
     return _then(_LayoutState(
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      controller: controller == freezed
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as PageController,
     ));
   }
 }
@@ -113,16 +101,14 @@ class __$LayoutStateCopyWithImpl<$Res> extends _$LayoutStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LayoutState implements _LayoutState {
-  const _$_LayoutState({required this.index, required this.controller});
+  const _$_LayoutState({required this.index});
 
   @override
   final int index;
-  @override
-  final PageController controller;
 
   @override
   String toString() {
-    return 'LayoutState(index: $index, controller: $controller)';
+    return 'LayoutState(index: $index)';
   }
 
   @override
@@ -130,13 +116,11 @@ class _$_LayoutState implements _LayoutState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LayoutState &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.controller, controller) ||
-                other.controller == controller));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, controller);
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
@@ -145,14 +129,10 @@ class _$_LayoutState implements _LayoutState {
 }
 
 abstract class _LayoutState implements LayoutState {
-  const factory _LayoutState(
-      {required int index,
-      required PageController controller}) = _$_LayoutState;
+  const factory _LayoutState({required int index}) = _$_LayoutState;
 
   @override
   int get index;
-  @override
-  PageController get controller;
   @override
   @JsonKey(ignore: true)
   _$LayoutStateCopyWith<_LayoutState> get copyWith =>

@@ -1,7 +1,7 @@
 import 'package:crypto_belo/aplication/crypto_currency/coin_chart/coin_chart_provider.dart';
 import 'package:crypto_belo/aplication/crypto_currency/coin_list/coin_list_provider.dart';
 import 'package:crypto_belo/domain/coin/coin.dart';
-import 'package:crypto_belo/presentation/core/animations/fade_animation.dart';
+import 'package:crypto_belo/presentation/core/animations/traslade_fade_animation.dart';
 import 'package:crypto_belo/presentation/pages/crypto_currency/widgets/coin_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,7 +38,7 @@ class CoinsCointainer extends StatelessWidget {
                         padding: EdgeInsets.zero,
                         itemCount: success.coins.length,
                         itemBuilder: (context, index) {
-                          return FadeAnimation(
+                          return TrasladeFadeAnimation(
                             delay: ((1.0 + index) / (success.coins.length / 2)),
                             child: CoinItem(
                               coin: success.coins[index],
