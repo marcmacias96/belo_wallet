@@ -5,7 +5,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final httpClientProvider = Provider<Dio>((ref) {
   Dio dio = Dio(BaseOptions(
-    baseUrl: "http://api.coingecko.com",
+    baseUrl: "https://api.coingecko.com/api/v3",
   ));
   dio.interceptors.add(PrettyDioLogger(
     requestHeader: true,

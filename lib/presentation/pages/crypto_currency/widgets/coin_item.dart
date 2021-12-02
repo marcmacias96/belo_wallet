@@ -4,9 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoinItem extends StatelessWidget {
   final Coin coin;
+  final VoidCallback onTap;
   const CoinItem({
     Key? key,
     required this.coin,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -19,66 +21,70 @@ class CoinItem extends StatelessWidget {
       ),
       height: 100.h,
       margin: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.network(coin.image, width: 70.w,
-              loadingBuilder: (context, child, loading) {
-            if (loading == null) {
-              return child;
-            }
-            return Container(
-              height: 70.w,
-              width: 70.w,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).backgroundColor,
-              ),
-            );
-          }),
-          const SizedBox(width: 10),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                coin.symbol.toUpperCase(),
-                style: Theme.of(context).textTheme.headline4!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              Text(
-                coin.name,
-                style: Theme.of(context).textTheme.headline5!.copyWith(
-                      fontWeight: FontWeight.w300,
-                    ),
-              ),
-            ],
-          ),
-          const Spacer(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                "\$${coin.currentPrice}",
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.headline4!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              Text(
-                coin.priceChange.toStringAsFixed(2),
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.headline5!.copyWith(
-                    fontWeight: FontWeight.w300,
-                    color: coin.priceChange >= 0
-                        ? Colors.green
-                        : Colors.redAccent),
-              ),
-            ],
-          ),
-        ],
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.network(coin.image, width: 70.w,
+                loadingBuilder: (context, child, loading) {
+              if (loading == null) {
+                return child;
+              }
+              return Container(
+                height: 70.w,
+                width: 70.w,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).backgroundColor,
+                ),
+              );
+            }),
+            const SizedBox(width: 10),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  coin.symbol.toUpperCase(),
+                  style: Theme.of(context).textTheme.headline4!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                Text(
+                  coin.name,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                        fontWeight: FontWeight.w300,
+                      ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  "\$${coin.currentPrice}",
+                  textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.headline4!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                Text(
+                  coin.priceChange.toStringAsFixed(2),
+                  textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: coin.priceChange >= 0
+                          ? Colors.green
+                          : Colors.redAccent),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

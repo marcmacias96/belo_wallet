@@ -12,10 +12,7 @@ class CoinListNotifier extends StateNotifier<CoinListState> {
 
   Future<void> getAllCoins() async {
     state = const Loading();
-    final failureOrCoins = await _coinRepository.getAllCoins(
-      listOfCoins:
-          "bitcoin,ethereum,tether,cardano,binancecoin,ripple,dogecoin,usd-coin,polkadot,internet-computer,uniswap",
-    );
+    final failureOrCoins = await _coinRepository.getAllCoins();
     state = failureOrCoins.fold(
       (failure) => Failure(failure),
       (coins) => Success(coins),

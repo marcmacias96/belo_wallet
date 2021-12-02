@@ -1,5 +1,6 @@
+import 'package:crypto_belo/presentation/pages/crypto_currency/widgets/chart_container.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/coins_container.dart';
 
 class CryptoCurrencyPage extends StatelessWidget {
@@ -8,14 +9,16 @@ class CryptoCurrencyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Column(
-        children: const [
-          CoinsCointainer(),
-        ],
+      body: Container(
+        margin: EdgeInsets.only(
+          top: ScreenUtil().statusBarHeight,
+        ),
+        child: Column(
+          children: const [
+            ChartContainer(),
+            CoinsCointainer(),
+          ],
+        ),
       ),
     );
   }

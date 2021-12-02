@@ -22,6 +22,8 @@ dependencies:
   dio: ^4.0.4
   pretty_dio_logger: ^1.1.1
   logger: ^1.1.0
+  fl_chart: ^0.40.2
+  lottie: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -38,3 +40,4 @@ flutter:
 
   assets:
     - assets/img/
+    - assets/animations/

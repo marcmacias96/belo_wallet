@@ -8,6 +8,7 @@ import 'package:crypto_belo/infrastucture/providers/http_client_provider.dart';
 import 'package:crypto_belo/infrastucture/providers/logger_provider.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 
@@ -22,13 +23,11 @@ class CoinRepository extends ICoinRepository {
 
   CoinRepository(this._dio, this._logger);
   @override
-  Future<Either<CoinFailure, List<Coin>>> getAllCoins({
-    required String listOfCoins,
-  }) async {
+  Future<Either<CoinFailure, List<Coin>>> getAllCoins() async {
     try {
       var response = await _dio.get(
-        "/api/v3/coins/markets",
-        queryParameters: {'vs_currency': 'usd', 'ids': listOfCoins},
+        "/coins/markets",
+        queryParameters: {'vs_currency': 'usd'},
       );
       List<dynamic> listMaps = response.data;
       var list = listMaps
@@ -37,7 +36,7 @@ class CoinRepository extends ICoinRepository {
       return right(list);
     } on DioError catch (e) {
       _logger.e(
-        "Could not get the list of coins $listOfCoins due to this error",
+        "Could not get the list of coins due to this error",
         e.message,
       );
       return left(
@@ -59,7 +58,38 @@ class CoinRepository extends ICoinRepository {
 
   @override
   Future<Either<CoinFailure, Unit>> updateWallet(Coin to, Coin from) {
-    // TODO: implement updateWallet
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<CoinFailure, List<dynamic>>> getChart(
+      {required Coin coin}) async {
+    try {
+      var response = await _dio.get(
+        "/coins/${coin.id}/market_chart",
+        queryParameters: {'vs_currency': 'usd', 'days': 1},
+      );
+
+      return right((response.data["prices"] as List<dynamic>));
+    } on DioError catch (e) {
+      _logger.e(
+        "Could not get the list of coin ${coin.id} due to this error",
+        e.message,
+      );
+      return left(
+        CoinFailure.networkFail(
+          e.response!.statusCode!,
+          e.message,
+        ),
+      );
+    } catch (e) {
+      _logger.e(
+        "An unexpected error occurred",
+        e.toString(),
+      );
+      return left(
+        CoinFailure.unexpected(),
+      );
+    }
   }
 }

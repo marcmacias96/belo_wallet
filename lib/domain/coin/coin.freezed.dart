@@ -23,9 +23,7 @@ class _$CoinTearOff {
       required String symbol,
       required String image,
       required double currentPrice,
-      required double priceChange,
-      double? amount = 0.0,
-      double? dollars = 0.0}) {
+      required double priceChange}) {
     return _Coin(
       id: id,
       name: name,
@@ -33,8 +31,6 @@ class _$CoinTearOff {
       image: image,
       currentPrice: currentPrice,
       priceChange: priceChange,
-      amount: amount,
-      dollars: dollars,
     );
   }
 }
@@ -50,8 +46,6 @@ mixin _$Coin {
   String get image => throw _privateConstructorUsedError;
   double get currentPrice => throw _privateConstructorUsedError;
   double get priceChange => throw _privateConstructorUsedError;
-  double? get amount => throw _privateConstructorUsedError;
-  double? get dollars => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CoinCopyWith<Coin> get copyWith => throw _privateConstructorUsedError;
@@ -67,9 +61,7 @@ abstract class $CoinCopyWith<$Res> {
       String symbol,
       String image,
       double currentPrice,
-      double priceChange,
-      double? amount,
-      double? dollars});
+      double priceChange});
 }
 
 /// @nodoc
@@ -88,8 +80,6 @@ class _$CoinCopyWithImpl<$Res> implements $CoinCopyWith<$Res> {
     Object? image = freezed,
     Object? currentPrice = freezed,
     Object? priceChange = freezed,
-    Object? amount = freezed,
-    Object? dollars = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -116,14 +106,6 @@ class _$CoinCopyWithImpl<$Res> implements $CoinCopyWith<$Res> {
           ? _value.priceChange
           : priceChange // ignore: cast_nullable_to_non_nullable
               as double,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
-      dollars: dollars == freezed
-          ? _value.dollars
-          : dollars // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -139,9 +121,7 @@ abstract class _$CoinCopyWith<$Res> implements $CoinCopyWith<$Res> {
       String symbol,
       String image,
       double currentPrice,
-      double priceChange,
-      double? amount,
-      double? dollars});
+      double priceChange});
 }
 
 /// @nodoc
@@ -161,8 +141,6 @@ class __$CoinCopyWithImpl<$Res> extends _$CoinCopyWithImpl<$Res>
     Object? image = freezed,
     Object? currentPrice = freezed,
     Object? priceChange = freezed,
-    Object? amount = freezed,
-    Object? dollars = freezed,
   }) {
     return _then(_Coin(
       id: id == freezed
@@ -189,14 +167,6 @@ class __$CoinCopyWithImpl<$Res> extends _$CoinCopyWithImpl<$Res>
           ? _value.priceChange
           : priceChange // ignore: cast_nullable_to_non_nullable
               as double,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
-      dollars: dollars == freezed
-          ? _value.dollars
-          : dollars // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -210,9 +180,7 @@ class _$_Coin implements _Coin {
       required this.symbol,
       required this.image,
       required this.currentPrice,
-      required this.priceChange,
-      this.amount = 0.0,
-      this.dollars = 0.0});
+      required this.priceChange});
 
   @override
   final String id;
@@ -226,16 +194,10 @@ class _$_Coin implements _Coin {
   final double currentPrice;
   @override
   final double priceChange;
-  @JsonKey(defaultValue: 0.0)
-  @override
-  final double? amount;
-  @JsonKey(defaultValue: 0.0)
-  @override
-  final double? dollars;
 
   @override
   String toString() {
-    return 'Coin(id: $id, name: $name, symbol: $symbol, image: $image, currentPrice: $currentPrice, priceChange: $priceChange, amount: $amount, dollars: $dollars)';
+    return 'Coin(id: $id, name: $name, symbol: $symbol, image: $image, currentPrice: $currentPrice, priceChange: $priceChange)';
   }
 
   @override
@@ -250,14 +212,12 @@ class _$_Coin implements _Coin {
             (identical(other.currentPrice, currentPrice) ||
                 other.currentPrice == currentPrice) &&
             (identical(other.priceChange, priceChange) ||
-                other.priceChange == priceChange) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.dollars, dollars) || other.dollars == dollars));
+                other.priceChange == priceChange));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, symbol, image,
-      currentPrice, priceChange, amount, dollars);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, symbol, image, currentPrice, priceChange);
 
   @JsonKey(ignore: true)
   @override
@@ -272,9 +232,7 @@ abstract class _Coin implements Coin {
       required String symbol,
       required String image,
       required double currentPrice,
-      required double priceChange,
-      double? amount,
-      double? dollars}) = _$_Coin;
+      required double priceChange}) = _$_Coin;
 
   @override
   String get id;
@@ -288,10 +246,6 @@ abstract class _Coin implements Coin {
   double get currentPrice;
   @override
   double get priceChange;
-  @override
-  double? get amount;
-  @override
-  double? get dollars;
   @override
   @JsonKey(ignore: true)
   _$CoinCopyWith<_Coin> get copyWith => throw _privateConstructorUsedError;

@@ -1,3 +1,4 @@
+import 'package:crypto_belo/aplication/crypto_currency/coin_chart/coin_chart_provider.dart';
 import 'package:crypto_belo/aplication/crypto_currency/coin_list/coin_list_provider.dart';
 import 'package:crypto_belo/domain/coin/coin.dart';
 import 'package:crypto_belo/presentation/core/animations/fade_animation.dart';
@@ -25,7 +26,7 @@ class CoinsCointainer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 0.4.sh,
+            height: 0.45.sh,
             child: Consumer(
               builder: (context, ref, child) {
                 final state = ref.watch(coinListProvider);
@@ -34,12 +35,20 @@ class CoinsCointainer extends StatelessWidget {
                     loading: (_) =>
                         const Center(child: CircularProgressIndicator()),
                     success: (success) => ListView.builder(
+                        padding: EdgeInsets.zero,
                         itemCount: success.coins.length,
                         itemBuilder: (context, index) {
                           return FadeAnimation(
-                              delay:
-                                  ((1.0 + index) / (success.coins.length / 2)),
-                              child: CoinItem(coin: success.coins[index]));
+                            delay: ((1.0 + index) / (success.coins.length / 2)),
+                            child: CoinItem(
+                              coin: success.coins[index],
+                              onTap: () {
+                                ref
+                                    .watch(coinChartProvider.notifier)
+                                    .getChart(success.coins[index]);
+                              },
+                            ),
+                          );
                         }),
                     failure: (failure) => onFailure("Ups!\nOcurrio un error."));
               },

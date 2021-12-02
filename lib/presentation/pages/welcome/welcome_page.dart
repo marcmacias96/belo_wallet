@@ -1,5 +1,5 @@
 import 'package:crypto_belo/presentation/core/actions/primary_button.dart';
-import 'package:crypto_belo/presentation/core/animations/fade_animation.dart';
+import 'package:crypto_belo/presentation/core/animations/traslade_fade_animation.dart';
 import 'package:crypto_belo/presentation/routes/routes.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +24,7 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
-          const FadeAnimation(
+          const TrasladeFadeAnimation(
             child: WhiteContainer(),
             delay: 0.8,
           )
@@ -54,7 +54,7 @@ class WhiteContainer extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            FadeAnimation(
+            TrasladeFadeAnimation(
               delay: 1.2,
               child: Padding(
                 padding: const EdgeInsets.only(top: 10.0),
@@ -79,7 +79,7 @@ class WhiteContainer extends StatelessWidget {
                 ),
               ),
             ),
-            FadeAnimation(
+            TrasladeFadeAnimation(
               delay: 1.2,
               child: Align(
                 alignment: Alignment.centerRight,
@@ -89,7 +89,7 @@ class WhiteContainer extends StatelessWidget {
                 ),
               ),
             ),
-            FadeAnimation(
+            TrasladeFadeAnimation(
               delay: 1.4,
               child: Align(
                 alignment: Alignment.bottomCenter,

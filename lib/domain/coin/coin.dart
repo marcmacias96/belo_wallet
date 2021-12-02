@@ -11,7 +11,14 @@ class Coin with _$Coin {
     required String image,
     required double currentPrice,
     required double priceChange,
-    @Default(0.0) double? amount,
-    @Default(0.0) double? dollars,
   }) = _Coin;
+
+  factory Coin.empty() => Coin(
+        id: '',
+        name: '',
+        symbol: '',
+        image: '',
+        currentPrice: 0.0,
+        priceChange: 0.0,
+      );
 }
