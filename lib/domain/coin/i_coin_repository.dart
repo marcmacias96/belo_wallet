@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 import 'coin.dart';
 import 'coin_failure.dart';

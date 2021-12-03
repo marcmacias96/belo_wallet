@@ -62,21 +62,21 @@ class ChartContainer extends ConsumerWidget {
                         );
                       }),
                       const SizedBox(width: 10),
-                      Column(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            state.coin.symbol.toUpperCase(),
+                            "${state.coin.name} - ",
                             style:
                                 Theme.of(context).textTheme.headline4!.copyWith(
                                       fontWeight: FontWeight.bold,
                                     ),
                           ),
                           Text(
-                            state.coin.name,
+                            state.coin.symbol.toUpperCase(),
                             style:
-                                Theme.of(context).textTheme.headline5!.copyWith(
+                                Theme.of(context).textTheme.headline4!.copyWith(
                                       fontWeight: FontWeight.w300,
                                     ),
                           ),

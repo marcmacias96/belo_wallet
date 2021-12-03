@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:crypto_belo/domain/coin/coin_failure.dart';
 import 'package:crypto_belo/domain/coin/coin.dart';
 import 'package:crypto_belo/domain/coin/i_coin_repository.dart';
@@ -8,7 +6,6 @@ import 'package:crypto_belo/infrastucture/providers/http_client_provider.dart';
 import 'package:crypto_belo/infrastucture/providers/logger_provider.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 

@@ -1,7 +1,5 @@
 import 'package:auto_route/annotations.dart';
-import 'package:crypto_belo/presentation/pages/crypto_currency/crypto_currency_page.dart';
 import 'package:crypto_belo/presentation/pages/layout/layout_page.dart';
-import 'package:crypto_belo/presentation/pages/wallet/wallet_page.dart';
 import 'package:crypto_belo/presentation/pages/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 

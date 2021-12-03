@@ -11,6 +11,8 @@ class Coin with _$Coin {
     required String image,
     required double currentPrice,
     required double priceChange,
+    double? balance,
+    double? valueInUsd,
   }) = _Coin;
 
   factory Coin.empty() => Coin(

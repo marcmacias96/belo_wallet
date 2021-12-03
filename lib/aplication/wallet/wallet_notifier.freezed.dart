@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'coin_list_notifier.dart';
+part of 'wallet_notifier.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$CoinListStateTearOff {
-  const _$CoinListStateTearOff();
+class _$WalletStateTearOff {
+  const _$WalletStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -25,9 +25,10 @@ class _$CoinListStateTearOff {
     return const Loading();
   }
 
-  Success success(List<Coin> coins) {
+  Success success(List<Coin> coins, double balance) {
     return Success(
       coins,
+      balance,
     );
   }
 
@@ -39,15 +40,15 @@ class _$CoinListStateTearOff {
 }
 
 /// @nodoc
-const $CoinListState = _$CoinListStateTearOff();
+const $WalletState = _$WalletStateTearOff();
 
 /// @nodoc
-mixin _$CoinListState {
+mixin _$WalletState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Coin> coins) success,
+    required TResult Function(List<Coin> coins, double balance) success,
     required TResult Function(String failure) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,7 +56,7 @@ mixin _$CoinListState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,7 +64,7 @@ mixin _$CoinListState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
     required TResult orElse(),
   }) =>
@@ -96,20 +97,19 @@ mixin _$CoinListState {
 }
 
 /// @nodoc
-abstract class $CoinListStateCopyWith<$Res> {
-  factory $CoinListStateCopyWith(
-          CoinListState value, $Res Function(CoinListState) then) =
-      _$CoinListStateCopyWithImpl<$Res>;
+abstract class $WalletStateCopyWith<$Res> {
+  factory $WalletStateCopyWith(
+          WalletState value, $Res Function(WalletState) then) =
+      _$WalletStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CoinListStateCopyWithImpl<$Res>
-    implements $CoinListStateCopyWith<$Res> {
-  _$CoinListStateCopyWithImpl(this._value, this._then);
+class _$WalletStateCopyWithImpl<$Res> implements $WalletStateCopyWith<$Res> {
+  _$WalletStateCopyWithImpl(this._value, this._then);
 
-  final CoinListState _value;
+  final WalletState _value;
   // ignore: unused_field
-  final $Res Function(CoinListState) _then;
+  final $Res Function(WalletState) _then;
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$CoinListStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$WalletStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -135,7 +135,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'CoinListState.initial()';
+    return 'WalletState.initial()';
   }
 
   @override
@@ -152,7 +152,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Coin> coins) success,
+    required TResult Function(List<Coin> coins, double balance) success,
     required TResult Function(String failure) failure,
   }) {
     return initial();
@@ -163,7 +163,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
   }) {
     return initial?.call();
@@ -174,7 +174,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
     required TResult orElse(),
   }) {
@@ -222,7 +222,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CoinListState {
+abstract class _Initial implements WalletState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -233,7 +233,7 @@ abstract class $LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res> extends _$CoinListStateCopyWithImpl<$Res>
+class _$LoadingCopyWithImpl<$Res> extends _$WalletStateCopyWithImpl<$Res>
     implements $LoadingCopyWith<$Res> {
   _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
       : super(_value, (v) => _then(v as Loading));
@@ -249,7 +249,7 @@ class _$Loading implements Loading {
 
   @override
   String toString() {
-    return 'CoinListState.loading()';
+    return 'WalletState.loading()';
   }
 
   @override
@@ -266,7 +266,7 @@ class _$Loading implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Coin> coins) success,
+    required TResult Function(List<Coin> coins, double balance) success,
     required TResult Function(String failure) failure,
   }) {
     return loading();
@@ -277,7 +277,7 @@ class _$Loading implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
   }) {
     return loading?.call();
@@ -288,7 +288,7 @@ class _$Loading implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
     required TResult orElse(),
   }) {
@@ -336,7 +336,7 @@ class _$Loading implements Loading {
   }
 }
 
-abstract class Loading implements CoinListState {
+abstract class Loading implements WalletState {
   const factory Loading() = _$Loading;
 }
 
@@ -344,11 +344,11 @@ abstract class Loading implements CoinListState {
 abstract class $SuccessCopyWith<$Res> {
   factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
       _$SuccessCopyWithImpl<$Res>;
-  $Res call({List<Coin> coins});
+  $Res call({List<Coin> coins, double balance});
 }
 
 /// @nodoc
-class _$SuccessCopyWithImpl<$Res> extends _$CoinListStateCopyWithImpl<$Res>
+class _$SuccessCopyWithImpl<$Res> extends _$WalletStateCopyWithImpl<$Res>
     implements $SuccessCopyWith<$Res> {
   _$SuccessCopyWithImpl(Success _value, $Res Function(Success) _then)
       : super(_value, (v) => _then(v as Success));
@@ -359,12 +359,17 @@ class _$SuccessCopyWithImpl<$Res> extends _$CoinListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? coins = freezed,
+    Object? balance = freezed,
   }) {
     return _then(Success(
       coins == freezed
           ? _value.coins
           : coins // ignore: cast_nullable_to_non_nullable
               as List<Coin>,
+      balance == freezed
+          ? _value.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -372,14 +377,16 @@ class _$SuccessCopyWithImpl<$Res> extends _$CoinListStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Success implements Success {
-  const _$Success(this.coins);
+  const _$Success(this.coins, this.balance);
 
   @override
   final List<Coin> coins;
+  @override
+  final double balance;
 
   @override
   String toString() {
-    return 'CoinListState.success(coins: $coins)';
+    return 'WalletState.success(coins: $coins, balance: $balance)';
   }
 
   @override
@@ -387,12 +394,13 @@ class _$Success implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Success &&
-            const DeepCollectionEquality().equals(other.coins, coins));
+            const DeepCollectionEquality().equals(other.coins, coins) &&
+            (identical(other.balance, balance) || other.balance == balance));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(coins));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(coins), balance);
 
   @JsonKey(ignore: true)
   @override
@@ -404,10 +412,10 @@ class _$Success implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Coin> coins) success,
+    required TResult Function(List<Coin> coins, double balance) success,
     required TResult Function(String failure) failure,
   }) {
-    return success(coins);
+    return success(coins, balance);
   }
 
   @override
@@ -415,10 +423,10 @@ class _$Success implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
   }) {
-    return success?.call(coins);
+    return success?.call(coins, balance);
   }
 
   @override
@@ -426,12 +434,12 @@ class _$Success implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(coins);
+      return success(coins, balance);
     }
     return orElse();
   }
@@ -474,10 +482,11 @@ class _$Success implements Success {
   }
 }
 
-abstract class Success implements CoinListState {
-  const factory Success(List<Coin> coins) = _$Success;
+abstract class Success implements WalletState {
+  const factory Success(List<Coin> coins, double balance) = _$Success;
 
   List<Coin> get coins;
+  double get balance;
   @JsonKey(ignore: true)
   $SuccessCopyWith<Success> get copyWith => throw _privateConstructorUsedError;
 }
@@ -490,7 +499,7 @@ abstract class $FailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FailureCopyWithImpl<$Res> extends _$CoinListStateCopyWithImpl<$Res>
+class _$FailureCopyWithImpl<$Res> extends _$WalletStateCopyWithImpl<$Res>
     implements $FailureCopyWith<$Res> {
   _$FailureCopyWithImpl(Failure _value, $Res Function(Failure) _then)
       : super(_value, (v) => _then(v as Failure));
@@ -521,7 +530,7 @@ class _$Failure implements Failure {
 
   @override
   String toString() {
-    return 'CoinListState.failure(failure: $failure)';
+    return 'WalletState.failure(failure: $failure)';
   }
 
   @override
@@ -545,7 +554,7 @@ class _$Failure implements Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Coin> coins) success,
+    required TResult Function(List<Coin> coins, double balance) success,
     required TResult Function(String failure) failure,
   }) {
     return failure(this.failure);
@@ -556,7 +565,7 @@ class _$Failure implements Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
   }) {
     return failure?.call(this.failure);
@@ -567,7 +576,7 @@ class _$Failure implements Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Coin> coins)? success,
+    TResult Function(List<Coin> coins, double balance)? success,
     TResult Function(String failure)? failure,
     required TResult orElse(),
   }) {
@@ -615,7 +624,7 @@ class _$Failure implements Failure {
   }
 }
 
-abstract class Failure implements CoinListState {
+abstract class Failure implements WalletState {
   const factory Failure(String failure) = _$Failure;
 
   String get failure;

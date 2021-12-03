@@ -1,5 +1,4 @@
 import 'package:crypto_belo/presentation/core/animations/fade_animation.dart';
-import 'package:crypto_belo/presentation/core/animations/traslade_fade_animation.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

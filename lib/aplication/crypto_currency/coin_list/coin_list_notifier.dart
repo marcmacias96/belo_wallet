@@ -1,5 +1,4 @@
 import 'package:crypto_belo/domain/coin/coin.dart';
-import 'package:crypto_belo/domain/coin/coin_failure.dart';
 import 'package:crypto_belo/domain/coin/i_coin_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,7 +13,12 @@ class CoinListNotifier extends StateNotifier<CoinListState> {
     state = const Loading();
     final failureOrCoins = await _coinRepository.getAllCoins();
     state = failureOrCoins.fold(
-      (failure) => Failure(failure),
+      (failure) => Failure(
+        failure.when(
+            unexpected: () => "Ocurrio un error inesperado.",
+            timeOut: () => "La Peticion tomo demaciado tiempo",
+            networkFail: (statusCode, msg) => "$statusCode: $msg"),
+      ),
       (coins) => Success(coins),
     );
   }

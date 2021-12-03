@@ -24,6 +24,7 @@ dependencies:
   logger: ^1.1.0
   fl_chart: ^0.40.2
   lottie: ^1.2.1
+  custom_refresh_indicator: ^1.0.0
 
 dev_dependencies:
   flutter_test:
