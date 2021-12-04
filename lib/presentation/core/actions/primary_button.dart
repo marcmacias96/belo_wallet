@@ -28,15 +28,14 @@ class PrimaryButton extends StatelessWidget {
               ? Theme.of(context).primaryColor
               : Colors.grey.withOpacity(0.5),
         ),
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Theme.of(context).focusColor,
-              fontWeight: FontWeight.w800,
-              fontSize: 35,
-            ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: Theme.of(context).focusColor,
+            fontWeight: FontWeight.w800,
+            fontSize: 35,
           ),
+          textAlign: TextAlign.center,
         ),
       ),
     );

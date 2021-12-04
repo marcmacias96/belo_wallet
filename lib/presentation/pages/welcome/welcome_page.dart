@@ -56,27 +56,24 @@ class WhiteContainer extends StatelessWidget {
           children: [
             TrasladeFadeAnimation(
               delay: 1.2,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: RichText(
-                  text: TextSpan(children: [
-                    const TextSpan(
-                      text: 'Hacelo simple Hacelo',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black,
-                          fontSize: 48),
+              child: RichText(
+                text: TextSpan(children: [
+                  TextSpan(
+                    text: 'Hacelo simple Hacelo',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: Colors.black,
+                        fontSize: 90.sp),
+                  ),
+                  TextSpan(
+                    text: ' Belo',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      color: Theme.of(context).focusColor,
+                      fontSize: 100.sp,
                     ),
-                    TextSpan(
-                      text: ' Belo',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context).focusColor,
-                        fontSize: 55,
-                      ),
-                    ),
-                  ]),
-                ),
+                  ),
+                ]),
               ),
             ),
             TrasladeFadeAnimation(

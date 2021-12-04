@@ -24,7 +24,7 @@ class CoinRepository extends ICoinRepository {
     try {
       var response = await _dio.get(
         "/coins/markets",
-        queryParameters: {'vs_currency': 'usd'},
+        queryParameters: {'vs_currency': 'usd', 'per_page': 20},
       );
       List<dynamic> listMaps = response.data;
       var list = listMaps
@@ -38,8 +38,8 @@ class CoinRepository extends ICoinRepository {
       );
       return left(
         CoinFailure.networkFail(
-          e.response!.statusCode!,
-          e.message,
+          e.response?.statusCode ?? 0,
+          e.response == null ? "Sin conexion a internet" : e.message,
         ),
       );
     } catch (e) {

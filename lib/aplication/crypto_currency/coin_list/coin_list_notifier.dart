@@ -17,7 +17,7 @@ class CoinListNotifier extends StateNotifier<CoinListState> {
         failure.when(
             unexpected: () => "Ocurrio un error inesperado.",
             timeOut: () => "La Peticion tomo demaciado tiempo",
-            networkFail: (statusCode, msg) => "$statusCode: $msg"),
+            networkFail: (statusCode, msg) => "$statusCode $msg"),
       ),
       (coins) => Success(coins),
     );

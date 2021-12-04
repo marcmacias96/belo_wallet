@@ -34,9 +34,9 @@ class CoinItem extends StatelessWidget {
               return Container(
                 height: 70.w,
                 width: 70.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Theme.of(context).backgroundColor,
+                  color: Colors.grey,
                 ),
               );
             }),
