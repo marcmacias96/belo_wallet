@@ -2,6 +2,7 @@ import 'package:crypto_belo/presentation/core/actions/primary_button.dart';
 import 'package:crypto_belo/presentation/core/animations/traslade_fade_animation.dart';
 import 'package:crypto_belo/presentation/routes/routes.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -11,17 +12,20 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset(
-                "assets/img/crypto.png",
-                scale: 1.2,
-              ),
+            child: Image.asset(
+              "assets/img/crypto.png",
+              scale: 1.5,
             ),
           ),
           const TrasladeFadeAnimation(

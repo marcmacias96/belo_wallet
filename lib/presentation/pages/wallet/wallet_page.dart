@@ -3,6 +3,7 @@ import 'package:crypto_belo/presentation/core/animations/fade_animation.dart';
 import 'package:crypto_belo/presentation/core/animations/traslade_fade_animation.dart';
 import 'package:crypto_belo/presentation/core/widgets/error_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,6 +17,8 @@ class WalletPage extends ConsumerWidget {
     final state = ref.watch(walletNotifierProvider);
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
