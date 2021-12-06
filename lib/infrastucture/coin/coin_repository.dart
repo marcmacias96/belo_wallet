@@ -54,11 +54,6 @@ class CoinRepository extends ICoinRepository {
   }
 
   @override
-  Future<Either<CoinFailure, Unit>> updateWallet(Coin to, Coin from) {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<CoinFailure, List<dynamic>>> getChart(
       {required Coin coin}) async {
     try {

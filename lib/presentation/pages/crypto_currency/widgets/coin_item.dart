@@ -24,7 +24,7 @@ class CoinItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.network(coin.image, width: 70.w,
                 loadingBuilder: (context, child, loading) {

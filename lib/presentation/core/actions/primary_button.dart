@@ -8,6 +8,7 @@ class PrimaryButton extends StatelessWidget {
   final bool isActive;
   final bool hasIcon;
   final double fontSize;
+  final double? height;
   const PrimaryButton({
     Key? key,
     required this.text,
@@ -16,6 +17,7 @@ class PrimaryButton extends StatelessWidget {
     this.isActive = true,
     this.hasIcon = false,
     this.fontSize = 35,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Container(
-          height: 100.h,
+          height: height ?? 100.h,
           width: 0.8.sw,
           decoration: BoxDecoration(
             boxShadow: !isActive

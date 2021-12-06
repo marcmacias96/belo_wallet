@@ -1,3 +1,4 @@
+import 'package:crypto_belo/domain/coin/coin.dart';
 import 'package:crypto_belo/domain/portfolio/crypto_active.dart';
 import 'package:crypto_belo/domain/portfolio/i_portfolio_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -26,5 +27,14 @@ class PortfolioRepository extends IPortfolioRepository {
     } on PortfolioFailure catch (_) {
       return left(PortfolioFailure.unexpected());
     }
+  }
+
+  @override
+  Future<Either<PortfolioFailure, Unit>> updatePortfolio(
+    Coin updatedTo,
+    Coin updatedFrom,
+  ) async {
+    await Future.delayed(const Duration(seconds: 3));
+    return right(unit);
   }
 }

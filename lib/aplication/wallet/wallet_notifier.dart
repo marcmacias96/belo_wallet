@@ -2,6 +2,7 @@ import 'package:crypto_belo/domain/coin/coin.dart';
 import 'package:crypto_belo/domain/coin/i_coin_repository.dart';
 import 'package:crypto_belo/domain/portfolio/crypto_active.dart';
 import 'package:crypto_belo/domain/portfolio/i_portfolio_repository.dart';
+import 'package:crypto_belo/presentation/core/models/preview_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -51,5 +52,38 @@ class WalletNotifier extends StateNotifier<WalletState> {
       (failure) => [],
       (coins) => coins,
     );
+  }
+
+  Future<void> updatePortfolio({
+    required Coin to,
+    required Coin from,
+    required PreviewModel convertion,
+  }) async {
+    final actualCoins = (state as Success).coins;
+    var total = (state as Success).balance;
+
+    var actualiIndexFrom =
+        actualCoins.indexWhere((item) => from.symbol == item.symbol);
+    actualCoins[actualiIndexFrom] = actualCoins[actualiIndexFrom].copyWith(
+        balance: actualCoins[actualiIndexFrom].balance! - from.balance!,
+        valueInUsd: ((actualCoins[actualiIndexFrom].balance! - from.balance!) *
+            from.currentPrice));
+
+    var actualIndexTo =
+        actualCoins.indexWhere((item) => to.symbol == item.symbol);
+    if (actualIndexTo != -1) {
+      actualCoins[actualIndexTo] = actualCoins[actualIndexTo].copyWith(
+          balance: actualCoins[actualIndexTo].balance! + to.balance!,
+          valueInUsd: ((actualCoins[actualIndexTo].balance! + to.balance!) *
+              to.currentPrice));
+    } else {
+      actualCoins.add(to);
+    }
+
+    actualCoins.map((coin) {
+      total += coin.valueInUsd!;
+    });
+
+    state = Success(actualCoins, total);
   }
 }

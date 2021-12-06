@@ -25,8 +25,7 @@ dependencies:
   fl_chart: ^0.40.2
   lottie: ^1.2.1
   custom_refresh_indicator: ^1.0.0
-  numeric_keyboard: ^1.1.0
-  dropdown_plus: ^0.0.9
+  new_virtual_keyboard: ^0.1.4
   animations: ^2.0.2
 
 dev_dependencies:

@@ -27,6 +27,7 @@ class AppTheme {
   );
 
   static final TextTheme lightTextTheme = TextTheme(
+      headline3: _headLine3Dark,
       //Saludo en welcome
       headline4: _headLine4Dark,
 
@@ -60,6 +61,12 @@ class AppTheme {
     color: Colors.black,
   );
 
+  static final TextStyle _headLine3Dark = _headLine6Light.copyWith(
+    fontWeight: FontWeight.bold,
+    fontSize: 50.sp,
+    color: Colors.black,
+  );
+
   static final TextStyle _headLine4Dark = _headLine5Light.copyWith(
     letterSpacing: 1,
     fontSize: 30.sp,
@@ -68,7 +75,7 @@ class AppTheme {
 
   static final TextStyle _bodyText1Light = TextStyle(
       color: AppTheme.greyAccent,
-      fontSize: 26.sp,
+      fontSize: 20.sp,
       fontWeight: FontWeight.w400,
       height: 1.5);
 
