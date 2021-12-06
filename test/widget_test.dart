@@ -52,31 +52,28 @@ class MyTestApp2 extends StatelessWidget {
 void main() {
   group("All tests", () {
     testWidgets('Riverpool Layout test', (WidgetTester tester) async {
-      // Build our app and trigger a frame.
+      //Iniciamos nuestra app
       await tester.pumpWidget(const ProviderScope(child: MyTestApp()));
 
-      // Verify that our counter starts at 0.
+      //Verificmos que el index empieza en cero
       expect(find.text('0'), findsOneWidget);
+      //Hacemos click en para cambiar el index
       await tester.tap(find.byType(InkWell));
       await tester.pump();
       expect(find.text('1'), findsOneWidget);
+      expect(find.text('0'), findsNothing);
     });
 
-    testWidgets('Widget Layout test', (WidgetTester tester) async {
-      // Build our app and trigger a frame.
+    testWidgets('Widget welcome test', (WidgetTester tester) async {
+      //Iniciamos nuestra app
       await tester.pumpWidget(const MyTestApp2());
       await tester.pump();
+      //Verificamos que los textos iniciales exisitan
       expect(find.byType(Text), findsWidgets);
+      //Verificamos que el boton de accion se visualize
       expect(find.text('Empezar'), findsOneWidget);
-      await tester.tap(find.byType(PrimaryButton));
-      // expect(find.text('Monedas'), findsOneWidget);
-      //expect(find.byType(ListView), findsWidgets);
-
-      // Verify that our counter starts at 0.
-      // expect(find.text('0'), findsOneWidget);
-      // await tester.tap(find.byType(InkWell));
-
-      // expect(find.text('1'), findsOneWidget);
+      //Verificamos que las imagenes se visualicen
+      expect(find.byType(Image), findsWidgets);
     });
   });
 }
