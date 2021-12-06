@@ -51,6 +51,7 @@ class ConvertPage extends ConsumerWidget {
             children: [
               Focus(
                 child: ConvertInput(
+                  isLoading: state.isLoading,
                   editingController: state.fromController,
                   coin: state.from,
                   onSelected: (from) => notifier.setFrom(from),
@@ -63,6 +64,7 @@ class ConvertPage extends ConsumerWidget {
               ),
               SizedBox(height: 50.h),
               ConvertInput(
+                isLoading: state.isLoading,
                 editingController: state.toController,
                 isFrom: false,
                 coin: state.to,

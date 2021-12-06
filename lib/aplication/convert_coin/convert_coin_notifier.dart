@@ -51,6 +51,9 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
   }
 
   Future<void> getCoins() async {
+    state = state.copyWith(
+      isLoading: true,
+    );
     final failureOrAllCoins = await _coinRepository.getAllCoins();
     final failureOrPortfolio = await _portfolioRepository.getPortfolio();
     List<Coin> allCoins =
@@ -80,6 +83,7 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
     state = state.copyWith(
       allCoins: allCoins,
       portfolio: portfolio,
+      isLoading: false,
     );
   }
 

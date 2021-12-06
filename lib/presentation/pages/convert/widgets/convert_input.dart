@@ -11,6 +11,7 @@ class ConvertInput extends StatelessWidget {
   final Function onSelected;
   final List<Coin> coins;
   final Coin selectedCoin;
+  final bool isLoading;
   const ConvertInput({
     Key? key,
     this.isFrom = true,
@@ -19,11 +20,12 @@ class ConvertInput extends StatelessWidget {
     required this.coins,
     required this.selectedCoin,
     required this.editingController,
+    required this.isLoading,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget getCoinSelector({required Coin coin}) {
+    Widget getCoinSelector({required Coin coin, required bool isLoading}) {
       return coin != Coin.empty()
           ? Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,7 +45,10 @@ class ConvertInput extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                 ),
-                const Icon(Icons.arrow_drop_down),
+                Visibility(
+                  visible: !isLoading,
+                  child: const Icon(Icons.arrow_drop_down),
+                ),
                 const VerticalDivider(
                   color: Colors.black,
                 )
@@ -66,7 +71,10 @@ class ConvertInput extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                 ),
-                const Icon(Icons.arrow_drop_down),
+                Visibility(
+                  visible: !isLoading,
+                  child: const Icon(Icons.arrow_drop_down),
+                ),
                 const VerticalDivider(
                   color: Colors.black,
                 )
@@ -126,7 +134,10 @@ class ConvertInput extends StatelessWidget {
                       onSelected(coin);
                     }
                   },
-                  child: getCoinSelector(coin: coin!),
+                  child: getCoinSelector(
+                    coin: coin!,
+                    isLoading: isLoading,
+                  ),
                 ),
               ),
               border: const OutlineInputBorder(),

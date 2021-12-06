@@ -25,7 +25,7 @@ class WelcomePage extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: Image.asset(
               "assets/img/crypto.png",
-              scale: 1.5,
+              scale: 1.7,
             ),
           ),
           const TrasladeFadeAnimation(
