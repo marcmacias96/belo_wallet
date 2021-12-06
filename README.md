@@ -1,4 +1,6 @@
+
 # Crypto Belo Wallet
+<img src="https://github.com/marcmacias96/belo_wallet/blob/master/assets/img/splash.png" width="15%"> 
 
 Moderna cartera de criptomonedas y aplicación de criptomonedas. Construida con Flutter.
 Aplicando una arquitectura Clean centrada en el dominio.
