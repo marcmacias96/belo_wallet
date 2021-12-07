@@ -26,7 +26,7 @@ class PrimaryButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        onTap: onTap,
+        onTap: isActive ? onTap : null,
         child: Container(
           height: height ?? 100.h,
           width: 0.8.sw,

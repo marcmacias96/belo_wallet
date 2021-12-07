@@ -101,7 +101,7 @@ class ConvertInput extends StatelessWidget {
             validator: (value) => !isFrom || coin == Coin.empty()
                 ? null
                 : Validator.validateBalance(
-                    double.parse(value == "" ? "0" : value!),
+                    double.parse(value == "" || value == "." ? "0" : value!),
                     coin!.balance!,
                   ).fold(
                     (f) => f.maybeMap(

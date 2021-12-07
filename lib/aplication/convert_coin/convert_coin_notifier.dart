@@ -1,8 +1,6 @@
 import 'package:crypto_belo/aplication/wallet/wallet_provider.dart';
 import 'package:crypto_belo/domain/coin/coin.dart';
-import 'package:crypto_belo/domain/coin/coin_failure.dart';
 import 'package:crypto_belo/domain/coin/i_coin_repository.dart';
-import 'package:crypto_belo/domain/portfolio/crypto_active.dart';
 import 'package:crypto_belo/domain/portfolio/i_portfolio_repository.dart';
 import 'package:crypto_belo/domain/portfolio/portfolio_failure.dart';
 import 'package:crypto_belo/presentation/core/models/preview_model.dart';
@@ -10,7 +8,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:dartx/dartx.dart';
 part 'convert_coin_notifier.freezed.dart';
 part 'convert_coin_state.dart';
 
@@ -134,19 +132,24 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
   bool canConvert() {
     bool suficientBalance = false;
     bool hasAmount = false;
+    bool validAmount = false;
     bool hasSelectedCoins =
         state.from != Coin.empty() && state.to != Coin.empty();
-    if (hasSelectedCoins) {
+    validAmount =
+        state.fromController.text.isDouble || state.toController.text.isDouble;
+    if (hasSelectedCoins && validAmount) {
       suficientBalance = state.from.balance! >=
-          double.parse(state.fromController.text == ""
-              ? "0"
-              : state.fromController.text);
+          double.parse(
+            state.fromController.text == "" || state.fromController.text == "."
+                ? "0"
+                : state.fromController.text,
+          );
 
       hasAmount =
           state.fromController.text != "" || state.toController.text != "";
     }
 
-    return (suficientBalance && hasSelectedCoins && hasAmount);
+    return (suficientBalance && hasSelectedCoins && hasAmount && validAmount);
   }
 
   void previewConvert() {
