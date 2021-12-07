@@ -1,3 +1,4 @@
+import 'package:crypto_belo/aplication/wallet/wallet_notifier.dart';
 import 'package:crypto_belo/aplication/wallet/wallet_provider.dart';
 import 'package:crypto_belo/domain/coin/coin.dart';
 import 'package:crypto_belo/domain/coin/i_coin_repository.dart';
@@ -53,27 +54,11 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
       isLoading: true,
     );
     final failureOrAllCoins = await _coinRepository.getAllCoins();
-    final failureOrPortfolio = await _portfolioRepository.getPortfolio();
+    var walletProvider = _read(walletNotifierProvider);
+    List<Coin> portfolio = (walletProvider as Success).coins;
+
     List<Coin> allCoins =
         failureOrAllCoins.fold((l) => [], (allCoins) => allCoins);
-    List<Coin> portfolio = failureOrPortfolio.fold(
-      (l) => [],
-      (portfolio) {
-        List<Coin> portfolioCoins = [];
-        for (var cryptoActive in portfolio) {
-          var index =
-              allCoins.indexWhere((coin) => cryptoActive.symbol == coin.symbol);
-          if (index != -1) {
-            final amount = cryptoActive.amount;
-            final valueInUsd = allCoins[index].currentPrice * amount;
-            portfolioCoins.add(
-              allCoins[index].copyWith(balance: amount, valueInUsd: valueInUsd),
-            );
-          }
-        }
-        return portfolioCoins;
-      },
-    );
 
     allCoins.sortBy((element) => element.name);
     portfolio.sortBy((element) => element.name);
@@ -174,6 +159,7 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
         final rate = state.to.currentPrice / state.from.currentPrice;
 
         state = state.copyWith(
+          invalidConversion: false,
           previewModel: PreviewModel(
             amount: double.parse(state.toController.text),
             rate: rate,
