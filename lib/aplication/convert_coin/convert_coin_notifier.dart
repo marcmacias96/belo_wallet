@@ -147,6 +147,7 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
       state = state.copyWith(
         invalidConversion: false,
         previewModel: PreviewModel(
+          isFrom: true,
           amount: double.parse(state.fromController.text),
           rate: rate,
           total: totalConvert,
@@ -161,6 +162,7 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
         state = state.copyWith(
           invalidConversion: false,
           previewModel: PreviewModel(
+            isFrom: false,
             amount: double.parse(state.toController.text),
             rate: rate,
             total: double.parse(state.toController.text),
@@ -196,7 +198,7 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
         valueInUsd: (state.previewModel!.amount * state.to.currentPrice),
       );
       updatedFrom = state.from.copyWith(
-        balance: state.previewModel!.rate,
+        balance: state.previewModel!.rate * state.previewModel!.amount,
         valueInUsd: (state.previewModel!.total * state.from.currentPrice),
       );
     }

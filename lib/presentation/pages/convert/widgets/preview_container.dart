@@ -109,7 +109,7 @@ class PreviewContainer extends ConsumerWidget {
                                     ),
                           ),
                           Text(
-                            "${state.previewModel!.amount.toString()} ${state.from.symbol.toUpperCase()}",
+                            "${state.previewModel!.amount.toString()} ${state.previewModel!.isFrom ? state.from.symbol.toUpperCase() : state.to.symbol.toUpperCase()}",
                             style:
                                 Theme.of(context).textTheme.bodyText1!.copyWith(
                                       fontSize: 30.sp,
