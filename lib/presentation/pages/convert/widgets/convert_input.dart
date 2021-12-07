@@ -1,6 +1,7 @@
 import 'package:crypto_belo/core/validators/validator.dart';
 import 'package:crypto_belo/domain/coin/coin.dart';
 import 'package:crypto_belo/presentation/pages/convert/widgets/coin_list.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
@@ -96,6 +97,7 @@ class ConvertInput extends StatelessWidget {
             vertical: 5.0,
           ),
           child: TextFormField(
+            readOnly: true,
             controller: editingController,
             style: Theme.of(context).textTheme.headline4,
             validator: (value) => !isFrom || coin == Coin.empty()
@@ -155,5 +157,22 @@ class ConvertInput extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class NoKeyboardEditableTextState extends EditableTextState {
+  @override
+  void requestKeyboard() {
+    super.requestKeyboard();
+    //hide keyboard
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+  }
+}
+
+class NoKeyboardEditableTextFocusNode extends FocusNode {
+  @override
+  bool consumeKeyboardToken() {
+    // prevents keyboard from showing on first focus
+    return false;
   }
 }

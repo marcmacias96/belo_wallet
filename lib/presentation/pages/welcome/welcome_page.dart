@@ -56,7 +56,7 @@ class WhiteContainer extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(40)),
         ),
-        child: Stack(
+        child: Column(
           children: [
             TrasladeFadeAnimation(
               delay: 1.2,
@@ -83,13 +83,14 @@ class WhiteContainer extends StatelessWidget {
             TrasladeFadeAnimation(
               delay: 1.2,
               child: Align(
-                alignment: Alignment.centerRight,
+                alignment: Alignment.topRight,
                 child: Image.asset(
                   "assets/img/belo_logo.png",
                   scale: 2.2,
                 ),
               ),
             ),
+            const Spacer(),
             TrasladeFadeAnimation(
               delay: 1.4,
               child: Align(
