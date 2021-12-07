@@ -69,7 +69,7 @@ class CryptoActiveItem extends StatelessWidget {
                     ),
               ),
               Text(
-                "${coin.balance} ${coin.symbol.toUpperCase()}",
+                "${coin.balance!.toStringAsPrecision(5)} ${coin.symbol.toUpperCase()}",
                 textAlign: TextAlign.end,
                 style: Theme.of(context).textTheme.headline5!.copyWith(
                       fontSize: 12,

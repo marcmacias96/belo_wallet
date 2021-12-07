@@ -81,7 +81,7 @@ class PreviewContainer extends ConsumerWidget {
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 Text(
-                  "${state.previewModel!.total.toStringAsFixed(6)} ${state.to.symbol.toUpperCase()}",
+                  "${state.previewModel!.total.toStringAsPrecision(5)} ${state.to.symbol.toUpperCase()}",
                   style: Theme.of(context).textTheme.headline3,
                 ),
                 SizedBox(height: 30.h),
