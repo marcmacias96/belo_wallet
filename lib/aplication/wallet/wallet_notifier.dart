@@ -64,11 +64,14 @@ class WalletNotifier extends StateNotifier<WalletState> {
 
     var actualiIndexFrom =
         actualCoins.indexWhere((item) => from.symbol == item.symbol);
-    var actB = actualCoins[actualiIndexFrom].balance! - from.balance!;
+
     actualCoins[actualiIndexFrom] = actualCoins[actualiIndexFrom].copyWith(
         balance: actualCoins[actualiIndexFrom].balance! - from.balance!,
         valueInUsd: ((actualCoins[actualiIndexFrom].balance! - from.balance!) *
             from.currentPrice));
+    if (actualCoins[actualiIndexFrom].valueInUsd == 0) {
+      actualCoins.remove(actualCoins[actualiIndexFrom]);
+    }
 
     var actualIndexTo =
         actualCoins.indexWhere((item) => to.symbol == item.symbol);
