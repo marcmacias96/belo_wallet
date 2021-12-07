@@ -6,7 +6,7 @@ Either<ValueFailure<double>, double> balanceValidator(
   double input,
   double balance,
 ) {
-  if (input < balance) {
+  if (input <= balance) {
     return right(input);
   } else {
     return left(
