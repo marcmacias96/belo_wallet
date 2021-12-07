@@ -49,8 +49,8 @@ class WhiteContainer extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       child: Container(
         width: double.infinity,
-        margin: const EdgeInsets.all(15),
-        padding: const EdgeInsets.all(25),
+        margin: EdgeInsets.all(35.sp),
+        padding: EdgeInsets.all(35.sp),
         height: 0.5.sh,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -67,6 +67,7 @@ class WhiteContainer extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w800,
                         color: Colors.black,
+                        height: 1.5,
                         fontSize: 90.sp),
                   ),
                   TextSpan(
@@ -74,7 +75,7 @@ class WhiteContainer extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       color: Theme.of(context).focusColor,
-                      fontSize: 100.sp,
+                      fontSize: 55,
                     ),
                   ),
                 ]),
