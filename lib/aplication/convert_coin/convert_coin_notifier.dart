@@ -160,6 +160,7 @@ class ConvertCoinNotifier extends StateNotifier<ConvertCoinState> {
       final rate = state.from.currentPrice / state.to.currentPrice;
 
       state = state.copyWith(
+        invalidConversion: false,
         previewModel: PreviewModel(
           amount: double.parse(state.fromController.text),
           rate: rate,
